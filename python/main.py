@@ -11,8 +11,6 @@ import numpy as np
 import pylab as pl
 from itertools import cycle
 
-# Jouer avec Google Places
-
 def import_data(filepath):
     print 'Importing data from {}...'.format(filepath)
     df = pandas.read_csv(filepath_or_buffer=filepath)  # Read the file

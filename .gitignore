@@ -1,0 +1,44 @@
+.DS_Store
+*.pyc
+*.o
+*.a
+*.xcworkspace
+
+#VIM backup files
+*~
+
+
+
+#LaTeX files!
+*.log
+*.aux
+*.backup
+*.toc
+*.ind
+*.idx
+*.ilg
+*.blg
+*.out
+*.bbl
+*.dvi
+*.nav
+*.pyg
+*.snm
+*.lof
+*.glg
+*.glo
+*.gls
+*.acn
+*.acr
+*.alg
+*.ist
+
+
+#Mongo database
+.mongo
+
+#OpenOffice lock files
+.~lock.*.*#
+
+#MainServer log files
+*.log
