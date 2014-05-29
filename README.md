@@ -2,7 +2,7 @@ POI Clustering
 ==============
 Overview
 --------
-This application aims finding points of interests in Lyon, France, based on pictures metadata retrieved from Flickr.<br/><br/>
+This application aims finding points of interests in Lyon, France, based on pictures metadata retrieved from Flickr.
 
 Dependencies
 ------------
@@ -10,7 +10,7 @@ To setup dependencies, execute the following command from the python folder:
 `sudo pip install -r requirements.txt`
 
 If you get the following error: `clang: error: unknown argument: '-mno-fused-madd'`
-Please run the following command: `ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future pip install scikit-learn`<br/><br/>
+Please run the following command: `ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future pip install scikit-learn`
 
 Functionalities
 ------------
