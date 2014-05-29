@@ -6,7 +6,7 @@ This application aims finding points of interests in Lyon, France, based on pict
 
 Dependencies
 ------------
-To setup dependencies, execute the following command from the python folder:
+To setup dependencies, execute the following command:
 `sudo pip install -r requirements.txt`
 
 If you get the following error: `clang: error: unknown argument: '-mno-fused-madd'`
@@ -14,5 +14,5 @@ Please run the following command: `ARCHFLAGS=-Wno-error=unused-command-line-argu
 
 Functionalities
 ------------
-- To start the clustering using MeanShift (density based algorithm), execute `python main.py`
+- To start the clustering using MeanShift (density based algorithm), execute `python main.py` from the python folder.
 - To display the results, execute `python server.py`, then access `localhost:8080` from your browser. The display may take some time.
