@@ -1,0 +1,56 @@
+\documentclass[a4paper,11pt,final,oneside,openright]{article}
+\usepackage{report}
+
+\newcommand{\reporttitle}{Datamining}
+\newcommand{\enseignants}{
+Mehdi~\textsc{Kaytoue}\\
+Jean-François~\textsc{Boulicaut}}
+
+\newcommand{\reportauthor}{
+Rémi DOMINGUES\\
+Adrien DUFFY-COISSARD}
+\newcommand{\hexanome}{H4211}
+\newcommand{\reportsubject}{}
+\newcommand{\stagetopic}{Project Flickr}
+\newcommand{\dateperiod}{du 24 Février 2014 au 10 Mars 2014}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\setlength{\parskip}{1ex} % Espace entre les paragraphes
+
+\hypersetup{
+    pdftitle={\reporttitle},%
+    pdfauthor={\reportauthor},%
+    pdfsubject={\reportsubject},%
+    pdfkeywords={INSA Lyon}
+}
+
+\title{\reporttitle}
+\author{\reportauthor}
+
+\setlongtables
+
+%\setcounter{tocdepth}{4}
+\begin{document}
+    \renewcommand{\chaptername}{} %\renewcommand{\thechapter}{}
+    \renewcommand{\contentsname}{Sommaire}
+
+    \pagestyle{empty}
+    \pagenumbering{arabic}
+    \input{title}
+	\pagebreak
+    \sloppy          % Justification moins stricte : des mots ne dépasseront pas des paragraphes
+
+    %\frontmatter
+    \thispagestyle{empty}
+    \tableofcontents
+    \addtocontents{toc}{\protect\thispagestyle{empty}}
+    \pagebreak
+
+    %\mainmatter
+    \pagestyle{headings}
+    %\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\chaptername\ \thechapter.\ #1}}{}}
+    %\renewcommand{\sectionmark}[1]{\markright{\thesection{} #1}}
+
+	\input{content}
+
+    %\backmatter
+\end{document}

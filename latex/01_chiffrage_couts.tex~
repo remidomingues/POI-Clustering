@@ -1,0 +1,11 @@
+\section{Intro}
+
+TODO
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{../../documents/evaluation/chiffrage.png}
+    \caption{Estimation du coût de réalisation de la solution}
+    \label{fig:cout}
+\end{figure}
+

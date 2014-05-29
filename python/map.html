@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+   
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0px; padding: 0px }
+        #map_canvas { height: 100% }
+    </style>
+   
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+   
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://kensairyce.bol.ucla.edu/jquery-1.5.2.min.js"></script>
+
+    <script type="text/javascript">    
+        //declare namespace
+        var ryan = {};
+       
+        //declare map
+        var map;
+
+        //trace function for debugging
+        function trace(message)
+        {
+            if (typeof console != 'undefined')
+            {
+                console.log(message);
+            }
+        }
+                       
+        //Function that gets run when the document loads
+        ryan.initialize = function()
+        {
+            var latlng = new google.maps.LatLng(34.0194543,-118.4911912);
+            var myOptions = {
+                zoom: 12,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        }
+
+           //array to hold flickr markers
+            var flickr = [];
+
+            //bounds to allow zooming to the extent of all markers
+            var bounds;
+
+            //info window
+            var infowindow = new google.maps.InfoWindow();
+
+            //Function to create Flickr Marker
+            ryan.createFlickrMarker = function(i,latitude,longitude,infowindowcontent,icon)
+            {
+                var markerLatLng = new google.maps.LatLng(latitude,longitude);  
+               
+                //extent bounds for each stop and adjust map to fit to it
+                bounds.extend(markerLatLng);
+                map.fitBounds(bounds);
+               
+                //set marker to be the flickr image, resizing it to 32 by 32 pixels
+                var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
+               
+                //create and map the marker
+                flickr[i] = new google.maps.Marker({
+                    position: markerLatLng,
+                    map: map,
+                    title: infowindowcontent,
+                    icon: image
+                });
+
+
+               
+                //add an onclick event
+                google.maps.event.addListener(flickr[i], 'click', function() {
+                    infowindow.setContent(infowindowcontent);
+                    infowindow.open(map,flickr[i]);
+                });
+            }
+
+            ryan.getFlickrPoint = function(){
+                $.getJSON("/mapPoint", function(data){
+                    $.each(data.result, function(i, s) {
+                        createFlickrMarker(i,s.lat, s.lon, null, null);
+                    });
+                });
+            }
+           
+        }
+    </script>
+</head>
+
+<body onload="ryan.initialize()">
+    <!-- side panel div container -->
+    <div style="position:absolute; width:380px; height: 100%; overflow:auto; float:left; padding-left:10px; padding-right:10px;">
+        <h1>Flickr API</h1>
+    </div>
+    <!-- map div container -->
+
+    <div id="map_canvas" style="height:100%; margin-left:400px;"></div>
+</body>
+</html>
